@@ -1,0 +1,3 @@
+rootProject.name = 'DownloadManager'
+include 'download_java','download'
+
