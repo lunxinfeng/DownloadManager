@@ -2,6 +2,10 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'maven'
+
+group = 'com.github.lunxinfeng'
+
 group 'com.lxf'
 version '1.0-SNAPSHOT'
 
@@ -13,7 +17,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
 }
 
