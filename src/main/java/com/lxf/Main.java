@@ -1,6 +1,5 @@
 package com.lxf;
 
-import com.lxf.download.DownloadListener;
 import com.lxf.download.DownloadManager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -35,26 +34,50 @@ public class Main extends Application {
     }
 
     private void download(String url, String filePath){
-        DownloadManager.down(url, filePath, new DownloadListener() {
+        DownloadManager manager = new DownloadManager();
+        manager.setListener(new DownloadManager.DownloadListener() {
             @Override
             public void onStart(long totalLength) {
-                System.out.println("开始下载:" + totalLength);
+                System.out.println("start load :" + totalLength);
             }
 
             @Override
             public void onProgress(int progress) {
-                System.out.println("下载中:" + progress);
+                System.out.println("loading :" + progress);
             }
 
             @Override
             public void onComplete() {
-                System.out.println("下载完成");
+                System.out.println("load complete");
             }
 
             @Override
             public void onFail() {
-                System.out.println("下载失败");
+                System.out.println("load fail");
             }
         });
+        manager.down(url, filePath);
+
+//        DownloadManager.down(url, filePath, new DownloadListener() {
+//            @Override
+//            public void onStart(long totalLength) {
+//                System.out.println("开始下载:" + totalLength);
+//            }
+//
+//            @Override
+//            public void onProgress(int progress) {
+//                System.out.println("下载中:" + progress);
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//                System.out.println("下载完成");
+//            }
+//
+//            @Override
+//            public void onFail() {
+//                System.out.println("下载失败");
+//            }
+//        });
     }
 }

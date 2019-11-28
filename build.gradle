@@ -14,4 +14,8 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile project(":download_java")
+    compile project(":download_retrofit")
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
