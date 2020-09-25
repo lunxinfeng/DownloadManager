@@ -70,7 +70,7 @@ public class DownloadManager {
 
         void onComplete();
 
-        void onFail();
+        void onFail(Throwable e);
     }
 
     /**
@@ -153,7 +153,7 @@ public class DownloadManager {
                         System.out.println("UpdateManager.onError : " + e.getMessage());
                         stop();
                         if (listener != null)
-                            listener.onFail();
+                            listener.onFail(e);
                     }
 
                     @Override
